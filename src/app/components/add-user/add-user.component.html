@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="form_div mt-4">
+    <form [formGroup]="crud" (ngSubmit)="adduser()">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Enter Name"
+              formControlName="name"
+              type="text"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              placeholder="Ex.8700XXXX"
+              formControlName="mobNo"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Enter Email"
+              formControlName="email"
+              type="email"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+            <input
+              matInput
+              placeholder="Enter Age"
+              formControlName="age"
+              type="number"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="btn_custom">
+        <button type="submit" class="btn btn-success btn_submit">Add</button>
+        <button type="reset" class="btn btn-info">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr class="table">
+      <th scope="col">S.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Age</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usersList;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobNo}}</td>
+      <td>{{user.age}}</td>
+      <td>
+        <button type="button" class="btn btn-info">Edit</button>
+        <button type="button" class="btn btn-warning" (click)="deleteUserById(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

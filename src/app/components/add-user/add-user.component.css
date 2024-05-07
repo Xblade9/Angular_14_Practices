@@ -1,0 +1,12 @@
+.form_div {
+  display: flex;
+  justify-content: center;
+}
+.btn_custom {
+  display: flex;
+  justify-content: end;
+}
+.btn_submit {
+  position: relative;
+  right: 1rem;
+}

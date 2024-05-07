@@ -1,0 +1,68 @@
+<app-header></app-header>
+<!-- Form Array -->
+<div class="container">
+  <div>
+    <strong>Click on Add To Order</strong>
+  </div>
+  <form [formGroup]="dayForm" (ngSubmit)="saveOrder()">
+    <div formArrayName="order">
+      <!-- The [formGroupName] directive is used to bind each <div> to the corresponding order in the
+         form array. The i variable is the index of the current order. -->
+      <div
+        *ngFor="let order of orders.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Name:</mat-label>
+          <input
+            matInput
+            placeholder="Enter Name"
+            type="text"
+            formControlName="name"
+          />
+        </mat-form-field>
+        <div
+          *ngIf="
+            order.get('name').touched && order.get('name').errors?.required
+          "
+        >
+          <div>
+            <span>Name is required*</span>
+          </div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Order Type</mat-label>
+          <mat-select formControlName="orderType">
+            <mat-option *ngFor="let type of types" [value]="type.name">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Cost:</mat-label>
+          <input
+            matInput
+            placeholder="Enter Cost"
+            type="text"
+            formControlName="cost"
+          />
+        </mat-form-field>
+        <mat-icon class="delete-btn" (click)="deleteOrder(i)"
+          >delete forever</mat-icon
+        >
+      </div>
+    </div>
+    <button mat-mini-fab (click)="addOrder()" type="button">Add</button>&nbsp;
+    <button
+      mat-raised-button
+      type="submit"
+      [disabled]="!dayForm.valid"
+      *ngIf="showSubmit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- End -->
+<app-footer></app-footer>

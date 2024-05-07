@@ -1,0 +1,96 @@
+<app-header></app-header>
+<div class="container-fluid div_container mt-3">
+  <div class="div_form">
+    <form [formGroup]="signUp" (ngSubmit)="submitForm()" class="form__div">
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" [style.width.px]="250">
+            <mat-label>Name:</mat-label>
+            <input matInput placeholder="Ex.John" formControlName="name" />
+          </mat-form-field>
+          <div
+            *ngIf="(submitted || f['name'].touched) &&  f['name'].errors?.['required']"
+          >
+            <div class="validation_txt">Name is required*</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" [style.width.px]="250">
+            <mat-label>Password:</mat-label>
+            <input
+              matInput
+              placeholder="Ex.pass@123"
+              formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <div
+            *ngIf="(submitted || f['password'].touched) &&  f['password'].errors?.['required']"
+          >
+            <div class="validation_txt">Password is required*</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" [style.width.px]="250">
+            <mat-label>phone:</mat-label>
+            <input matInput placeholder="9900889900" formControlName="phone" />
+          </mat-form-field>
+          <div
+            *ngIf="(submitted || f['phone'].touched) &&  f['phone'].errors?.['required']"
+          >
+            <div class="validation_txt">Phone is required*</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <mat-form-field appearance="outline" [style.width.px]="250">
+            <mat-label>Email:</mat-label>
+            <input
+              matInput
+              placeholder="Ex.John@g.com"
+              formControlName="email"
+            />
+          </mat-form-field>
+          <div
+            *ngIf="(submitted || f['email'].touched) &&  f['email'].errors?.['required']"
+          >
+            <div class="validation_txt">Email is required*</div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2" style="position: relative; bottom: 1rem">
+        <div
+          class="col-12"
+          style="display: flex; justify-content: space-evenly"
+        >
+          <button mat-raised-button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+          <button
+            mat-raised-button
+            type="button"
+            (click)="resetSubmitForm()"
+            class="btn btn-dark"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

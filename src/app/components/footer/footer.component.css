@@ -1,0 +1,58 @@
+@media (max-width: 414px) {
+  .footer_bg {
+    margin-top: 50px;
+  }
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
+.position1 {
+  position: absolute;
+}
+
+.position2 {
+  position: relative;
+}
+
+.footer_bg {
+  background: #232424;
+  width: 100%;
+  padding: 3px 0px 3px 0px;
+  z-index: 999;
+  bottom: 0;
+  position: fixed !important;
+
+  .footer_txt {
+    p {
+      span {
+        color: #fff;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
+      color: #ffffffb3;
+      font-size: 12px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    h6 {
+      span {
+        color: #fff;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
+      a {
+        color: #ffffffb3;
+        font-size: 14px;
+      }
+
+      line-height: 24px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+}

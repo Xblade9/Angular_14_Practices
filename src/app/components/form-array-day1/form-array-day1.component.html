@@ -1,0 +1,59 @@
+<div>
+  <p>Registration</p>
+  <div>
+    <form [formGroup]="regForm">
+      <ng-container formArrayName="register">
+        <ng-container *ngFor="let reg of register.controls; let i = index">
+          <div [formGroup]="reg">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                placeholder="First Name"
+                formControlName="firstName"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Middle Name</mat-label>
+              <input
+                matInput
+                placeholder="Middle Name"
+                formControlName="midName"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Gender:</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option
+                  *ngFor="let gender of genders"
+                  [value]="gender.value"
+                  >{{ gender.viewValue }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Mobile Number:</mat-label>
+              <input
+                matInput
+                placeholder="Enter Mobile Number"
+                formControlName="mobNo"
+              />
+            </mat-form-field>
+            <mat-icon class="delete-btn" (click)="deleteRegForm(i)"
+              >delete forever</mat-icon
+            >
+          </div>
+        </ng-container>
+      </ng-container>
+      <button mat-mini-fab (click)="addRegisterForm()">Add</button>
+    </form>
+  </div>
+</div>

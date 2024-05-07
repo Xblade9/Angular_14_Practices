@@ -1,0 +1,26 @@
+<div class="container">
+  <p>Add User</p>
+  <form [formGroup]="crudForm" (ngSubmit)="saveUser()">
+    <ng-container formArrayName="users">
+      <ng-container *ngFor="let user of users.controls; let i = index">
+        <div [formGroup]="user">
+          <mat-form-field appearence="outline">
+            <input matInput placeholder="Name" formControlName="name" />
+          </mat-form-field>
+          <mat-form-field appearence="outline">
+            <input matInput placeholder="State" formControlName="state" />
+          </mat-form-field>
+          <mat-form-field appearence="outline">
+            <input matInput placeholder="City" formControlName="city" />
+          </mat-form-field>
+        </div>
+        <div>
+            <i class="bi bi-trash" (click)="deleteUsers(i)"></i>
+            <i class="bi bi-pencil" (click)="updateUsers(i,formdata)"></i>
+            <button type="submit"><i class="bi bi-floppy2-fill"></i></button>
+        </div>
+      </ng-container>
+    </ng-container>
+    <div class="btn btn-dark" (click)="addUsers()">Add Users</div>
+  </form>
+</div>

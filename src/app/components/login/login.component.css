@@ -1,0 +1,23 @@
+.div_form {
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 25%;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.div_container {
+  display: flex;
+  justify-content: center;
+}
+
+.form__div {
+  position: relative;
+  top: 10px;
+}
+
+.validation_txt {
+  position: relative;
+  bottom: 1rem;
+  color: red;
+}
