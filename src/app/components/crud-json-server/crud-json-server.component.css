@@ -1,0 +1,6 @@
+a {
+  text-decoration: none;
+}
+.active-tab {
+  color: rgb(11, 196, 11) !important;
+}

@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud-json-server.component.css'],
 })
 export class CrudJsonServerComponent implements OnInit {
-  selectedTab: string = '';
+  selectedTab!: number ;
   constructor() {}
 
   ngOnInit(): void {}
 
   selectedTabIndex(event: any) {
-    this.selectedTab = event.tab.textLabel;
+    this.selectedTab = event.index;
   }
 }

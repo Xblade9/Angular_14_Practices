@@ -5,6 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Users } from 'src/models/users';
 import { CrudService } from 'src/services/crud.service';
@@ -15,19 +16,19 @@ import { CrudService } from 'src/services/crud.service';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit, OnChanges {
-  @Input() selectedTab: string = '';
+  @Input() selectedTab!: number;
   usersList: any = [];
 
-  constructor(private _crud: CrudService, private toastr: ToastrService) {}
+  constructor(
+    private _crud: CrudService,
+    private toastr: ToastrService,
+    private route: Router
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (
-      changes['selectedTab'] &&
-      !changes['selectedTab'].firstChange &&
-      changes['selectedTab'].currentValue !== 'Add User'
-    ) {
+    if (changes['selectedTab'] && !changes['selectedTab'].firstChange && changes['selectedTab'].currentValue !== 0) {
       this.getAllUsers();
     }
   }
@@ -39,11 +40,17 @@ export class UserListComponent implements OnInit, OnChanges {
   }
 
   deleteUserById(id: any) {
-    // debugger
     this._crud.deleteUserById(id).subscribe((res: Users) => {
       console.log(res);
-      this.toastr.error('User Deleted Successfully')
-      this.getAllUsers()
+      this.toastr.error('User Deleted Successfully');
+      this.getAllUsers();
+    });
+  }
+
+  getUserById(id: any) {
+    this._crud.getUserById(id).subscribe((res: Users) => {
+      console.log(res);
+      this.toastr.success('User Updated Successfully');
     });
   }
 }

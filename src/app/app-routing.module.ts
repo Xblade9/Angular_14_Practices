@@ -10,6 +10,8 @@ import { FormArrayDay1Component } from './components/form-array-day1/form-array-
 import { AuthGuardGuard } from 'src/auth/auth-guard.guard';
 import { FormArrayDay2Component } from './components/form-array-day2/form-array-day2.component';
 import { CrudJsonServerComponent } from './components/crud-json-server/crud-json-server.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: SignUpComponent },
@@ -26,11 +28,25 @@ const routes: Routes = [
     path: 'faday2',
     component: FormArrayDay2Component,
   },
-  { path: 'crudjs', component: CrudJsonServerComponent },
+  {
+    path: 'crudjs',
+    component: CrudJsonServerComponent,
+    children: [
+      { path: '', redirectTo: 'add-user', pathMatch: 'full' },
+      {
+        path: 'add-user',
+        component: AddUserComponent,
+      },
+      {
+        path: 'user-list',
+        component: UserListComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

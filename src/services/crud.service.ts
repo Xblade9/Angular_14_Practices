@@ -26,7 +26,13 @@ export class CrudService {
 
   //DELETE API ENDPOINT TO DELETE THE USER....
 
-  deleteUserById(id:Users):Observable<Users>{
-    return this.http.delete<Users>(`${this.apiUrl}Users/${id}`)
+  deleteUserById(id: Users): Observable<Users> {
+    return this.http.delete<Users>(`${this.apiUrl}Users/${id}`);
+  }
+
+  // GET API ENDPOINT TO UPDATE THE USERS....
+
+  getUserById(id: Users): Observable<Users> {
+    return this.http.get<Users>(`${this.apiUrl}Users/${id}`);
   }
 }

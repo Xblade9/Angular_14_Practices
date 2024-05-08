@@ -5,11 +5,30 @@
     animationDuration="0ms"
     (selectedTabChange)="selectedTabIndex($event)"
   >
-    <mat-tab label="Add User"><app-add-user></app-add-user></mat-tab>
-    <mat-tab label="User List"
-      ><app-user-list [selectedTab]="selectedTab"></app-user-list
-    ></mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <a
+          routerLink="/crudjs/add-user"
+          routerLinkActive="active-tab"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Add User</a
+        >
+      </ng-template>
+      <app-add-user></app-add-user>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <a
+          routerLink="/crudjs/user-list"
+          routerLinkActive="active-tab"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >User List</a
+        >
+      </ng-template>
+      <app-user-list [selectedTab]="selectedTab"></app-user-list>
+    </mat-tab>
   </mat-tab-group>
 </div>
+
 <!-- ENDS HERE -->
 <app-footer></app-footer>
