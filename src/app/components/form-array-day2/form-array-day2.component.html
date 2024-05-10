@@ -8,24 +8,14 @@
     <div formArrayName="order">
       <!-- The [formGroupName] directive is used to bind each <div> to the corresponding order in the
          form array. The i variable is the index of the current order. -->
-      <div
-        *ngFor="let order of orders.controls; let i = index"
-        [formGroupName]="i"
-      >
+      <div *ngFor="let order of orders.controls; let i = index" [formGroupName]="i">
         <mat-form-field appearance="outline">
           <mat-label>Name:</mat-label>
-          <input
-            matInput
-            placeholder="Enter Name"
-            type="text"
-            formControlName="name"
-          />
+          <input matInput placeholder="Enter Name" type="text" formControlName="name" />
         </mat-form-field>
-        <div
-          *ngIf="
+        <div *ngIf="
             order.get('name').touched && order.get('name').errors?.required
-          "
-        >
+          ">
           <div>
             <span>Name is required*</span>
           </div>
@@ -35,30 +25,18 @@
           <mat-select formControlName="orderType">
             <mat-option *ngFor="let type of types" [value]="type.name">{{
               type.name
-            }}</mat-option>
+              }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Cost:</mat-label>
-          <input
-            matInput
-            placeholder="Enter Cost"
-            type="text"
-            formControlName="cost"
-          />
+          <input matInput placeholder="Enter Cost" type="text" formControlName="cost" />
         </mat-form-field>
-        <mat-icon class="delete-btn" (click)="deleteOrder(i)"
-          >delete forever</mat-icon
-        >
+        <mat-icon class="delete-btn" (click)="deleteOrder(i)">delete forever</mat-icon>
       </div>
     </div>
     <button mat-mini-fab (click)="addOrder()" type="button">Add</button>&nbsp;
-    <button
-      mat-raised-button
-      type="submit"
-      [disabled]="!dayForm.valid"
-      *ngIf="showSubmit"
-    >
+    <button mat-raised-button type="submit" [disabled]="!dayForm.valid" *ngIf="showSubmit">
       Submit
     </button>
   </form>

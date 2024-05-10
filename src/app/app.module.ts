@@ -26,6 +26,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ToastrModule } from 'ngx-toastr';
 import { StoreModule } from '@ngrx/store';
+import { FormArrayDay3Component } from './components/form-array-day3/form-array-day3.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { StoreModule } from '@ngrx/store';
     CrudJsonServerComponent,
     AddUserComponent,
     UserListComponent,
+    FormArrayDay3Component,
   ],
   imports: [
     BrowserModule,

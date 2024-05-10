@@ -12,6 +12,7 @@ import { FormArrayDay2Component } from './components/form-array-day2/form-array-
 import { CrudJsonServerComponent } from './components/crud-json-server/crud-json-server.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { FormArrayDay3Component } from './components/form-array-day3/form-array-day3.component';
 
 const routes: Routes = [
   { path: '', component: SignUpComponent },
@@ -43,10 +44,11 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'faday3', component: FormArrayDay3Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
