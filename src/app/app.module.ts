@@ -25,6 +25,7 @@ import { CrudJsonServerComponent } from './components/crud-json-server/crud-json
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     HttpClientModule,
     MatTabsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent],
