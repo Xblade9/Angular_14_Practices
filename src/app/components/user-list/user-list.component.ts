@@ -23,12 +23,16 @@ export class UserListComponent implements OnInit, OnChanges {
     private _crud: CrudService,
     private toastr: ToastrService,
     private route: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedTab'] && !changes['selectedTab'].firstChange && changes['selectedTab'].currentValue !== 0) {
+    if (
+      changes['selectedTab'] &&
+      !changes['selectedTab'].firstChange &&
+      changes['selectedTab'].currentValue !== 0
+    ) {
       this.getAllUsers();
     }
   }
@@ -48,9 +52,13 @@ export class UserListComponent implements OnInit, OnChanges {
   }
 
   getUserById(id: any) {
-    this._crud.getUserById(id).subscribe((res: Users) => {
-      console.log(res);
-      this.toastr.success('User Updated Successfully');
+    this.route.navigate(['/crudjs/add-user'], {
+      queryParams: { tab: 'add-user' },
     });
+    window.location.reload()
+    // this._crud.getUserById(id).subscribe((res: Users) => {
+    //   console.log(res);
+    //   this.toastr.success('User Updated Successfully');
+    // });
   }
 }
